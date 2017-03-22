@@ -23,6 +23,7 @@
     </properties>
 
     <build>
+        <finalName>lti-launch-example</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
