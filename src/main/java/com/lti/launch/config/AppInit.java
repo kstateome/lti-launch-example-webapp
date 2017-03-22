@@ -16,12 +16,10 @@ public class AppInit extends SpringBootServletInitializer {
     private String canvasUrl;
     @Value("${config.property.canvasUrl2}")
     private String canvasUrl2;
-    @Value("${config.property.oAuthClientId}")
-    private String oAuthClientId;
-    @Value("${config.property.oAuthClientSecret}")
-    private String oAuthClientSecret;
-    @Value("${config.property.oAuthClientSecretKey}")
-    private String oAuthClientSecretKey;
+    @Value("${config.property.lti_launch_key}")
+    private String ltiLaunchKey;
+    @Value("${config.property.lti_launch_secret}")
+    private String ltiLaunchSecret;
 
     public static void main(String [] args) {
         SpringApplication.run(AppInit.class, args);
@@ -37,9 +35,8 @@ public class AppInit extends SpringBootServletInitializer {
         ConfigServiceImpl configService = new ConfigServiceImpl();
         configService.setConfigValue("canvas_url", canvasUrl);
         configService.setConfigValue("canvas_url_2", canvasUrl2);
-        configService.setConfigValue("oauth_client_id", oAuthClientId);
-        configService.setConfigValue("oauth_client_secret", oAuthClientSecret);
-        configService.setConfigValue("oauth_client_secret_key", oAuthClientSecretKey);
+        configService.setConfigValue("lti_launch_key", ltiLaunchKey);
+        configService.setConfigValue("lti_launch_secret", ltiLaunchSecret);
         return configService;
     }
 }

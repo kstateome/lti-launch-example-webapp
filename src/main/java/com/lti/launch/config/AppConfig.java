@@ -42,7 +42,7 @@ public class AppConfig{
     @Bean
     public LtiLaunchKeyService getLtiLaunchKeyService() {
         LtiLaunchKeyServiceImpl ltiLaunchKeyService =  new LtiLaunchKeyServiceImpl();
-        ltiLaunchKeyService.setSecretForKey(configService.getConfigValue("oauth_client_secret_key"), configService.getConfigValue("oauth_client_secret"));
+        ltiLaunchKeyService.setSecretForKey(configService.getConfigValue("lti_launch_key"), configService.getConfigValue("lti_launch_secret"));
         return ltiLaunchKeyService;
     }
 
