@@ -30,6 +30,13 @@ public class AppInit extends SpringBootServletInitializer {
         return application.sources(AppConfig.class);
     }
 
+    /**
+     * Initializing static values here is unusual. We are doing it so we don't
+     * have to depend on a database or other config source in this example
+     * project. Usually you would provide a bean (probably in your AppConfig class)
+     * that is able to look up values from a database or application properties.
+     * @return ConfigService to look up config items.
+     */
     @Bean
     public ConfigService getConfigService() {
         ConfigServiceImpl configService = new ConfigServiceImpl();
