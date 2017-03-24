@@ -6,7 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This is just an example implementation, these configurations can come from a datasource or property files
+ * This service is able to look up arbitrary config values stored as a
+ * key/value pair.
+ * <p>
+ * These values could come from a database or application properties file
  */
 public class ConfigServiceImpl implements ConfigService {
     private final Map<String,String> properties;

@@ -4,18 +4,18 @@
 <head><title>Lti Launch Example</title></head>
 <body>
 <h2>Lti Launch Example</h2>
-<p>In order to test the Lti Launch Example for Canvas, please follow these steps:</p>
+<p>In order to test the LTI Launch Example for Canvas, please follow these steps:</p>
 <ol>
-    <li>Navigate to the account settings</li>
+    <li>Navigate to the course (or account) settings in Canvas</li>
     <li>Click on the "Apps" tab</li>
     <li>Click "View App Configurations"</li>
     <li>Click "Add New App"</li>
-    <li>Enter "Lti Launch Example" in the Name field</li>
-    <li>Obtain Consumer Key and Shared Secret from an administrator</li>
     <li>In the "Configuration Type" dropdown select: Paste XML</li>
+    <li>Enter "LTI Launch Example" in the Name field</li>
+    <li>The Consumer key and secret need to match what is in the <code>application.properties</code> file for <code>lti_launch_key</code> and <code>lti_launch_secret</code></li>
     <li>Copy and paste XML configuration listed below</li>
     <li>Submit the form</li>
-    <li>Navigate to your institution account page. There should now be a "Lti Launch Example" link in the account navigation bar on the left.</li>
+    <li>Get back to the home page of the course. There should now be a link in the left navigation menu with the text "LTI Launch Example"</li>
 </ol>
 
     <pre>

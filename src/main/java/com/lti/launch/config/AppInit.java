@@ -16,12 +16,10 @@ public class AppInit extends SpringBootServletInitializer {
     private String canvasUrl;
     @Value("${config.property.canvasUrl2}")
     private String canvasUrl2;
-    @Value("${config.property.oAuthClientId}")
-    private String oAuthClientId;
-    @Value("${config.property.oAuthClientSecret}")
-    private String oAuthClientSecret;
-    @Value("${config.property.oAuthClientSecretKey}")
-    private String oAuthClientSecretKey;
+    @Value("${config.property.lti_launch_key}")
+    private String ltiLaunchKey;
+    @Value("${config.property.lti_launch_secret}")
+    private String ltiLaunchSecret;
 
     public static void main(String [] args) {
         SpringApplication.run(AppInit.class, args);
@@ -32,14 +30,20 @@ public class AppInit extends SpringBootServletInitializer {
         return application.sources(AppConfig.class);
     }
 
+    /**
+     * Initializing static values here is unusual. We are doing it so we don't
+     * have to depend on a database or other config source in this example
+     * project. Usually you would provide a bean (probably in your AppConfig class)
+     * that is able to look up values from a database or application properties.
+     * @return ConfigService to look up config items.
+     */
     @Bean
     public ConfigService getConfigService() {
         ConfigServiceImpl configService = new ConfigServiceImpl();
         configService.setConfigValue("canvas_url", canvasUrl);
         configService.setConfigValue("canvas_url_2", canvasUrl2);
-        configService.setConfigValue("oauth_client_id", oAuthClientId);
-        configService.setConfigValue("oauth_client_secret", oAuthClientSecret);
-        configService.setConfigValue("oauth_client_secret_key", oAuthClientSecretKey);
+        configService.setConfigValue("lti_launch_key", ltiLaunchKey);
+        configService.setConfigValue("lti_launch_secret", ltiLaunchSecret);
         return configService;
     }
 }

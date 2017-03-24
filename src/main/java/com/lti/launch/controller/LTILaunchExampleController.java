@@ -23,6 +23,12 @@ public class LTILaunchExampleController extends LtiLaunchController {
     @Autowired
     public LtiSessionService ltiSessionService;
 
+    /**
+     * We have our applications return the LTI configuration XML when you hit
+     * the root of the context in a browser. It's an easy place to keep
+     * the necessary XML and this method sets the host name/port to appropriate
+     * values when running in dev/test by examining the incoming HTTP request.
+     */
     @RequestMapping("/")
     public ModelAndView basePath(HttpServletRequest request) {
         LOG.info("Showing Activity Reporting configuration XML");
@@ -37,9 +43,13 @@ public class LTILaunchExampleController extends LtiLaunchController {
         if (ltiSession.getEid() == null || ltiSession.getEid().isEmpty()) {
             throw new AccessDeniedException("You cannot access this content without a valid session");
         }
-        return new ModelAndView("helloWorld", "eid", ltiSession.getEid());
+        return new ModelAndView("helloWorld", "username", ltiSession.getEid());
     }
 
+    /**
+     * After authenticating the LTI launch request, the user is forwarded to
+     * this path. It is the initial page your user will see in their browser.
+     */
     @Override
     protected String getInitialViewPath() {
         return "/helloWorld";

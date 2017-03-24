@@ -6,7 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This is just an example implementation, these configurations can come from a datasource
+ * Service to manage a user's OAuth token used to access the Canvas API.
+ * Typically you would probably want to persist them to a database so that
+ * your application doesn't have to re-authorize every time the server is
+ * restarted.
  */
 public class OauthTokenServiceImpl implements OauthTokenService {
     public Map<String, String> tokens;

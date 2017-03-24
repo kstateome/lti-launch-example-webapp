@@ -42,7 +42,7 @@ public class AppConfig{
     @Bean
     public LtiLaunchKeyService getLtiLaunchKeyService() {
         LtiLaunchKeyServiceImpl ltiLaunchKeyService =  new LtiLaunchKeyServiceImpl();
-        ltiLaunchKeyService.setSecretForKey(configService.getConfigValue("oauth_client_secret_key"), configService.getConfigValue("oauth_client_secret"));
+        ltiLaunchKeyService.setSecretForKey(configService.getConfigValue("lti_launch_key"), configService.getConfigValue("lti_launch_secret"));
         return ltiLaunchKeyService;
     }
 
@@ -51,7 +51,11 @@ public class AppConfig{
         return new OauthTokenServiceImpl();
     }
 
-    //configures the tomcat container used by spring to allow the tool to run as an iframe
+    //Configures the tomcat container used by spring to allow the tool to run as an iframe.
+    //We already do this in the LtiLaunchSecurityConfig class over in lti-launch but
+    //some combination of Spring Boot and embedded tomcat was adding a second
+    //"X-Frame-Options: DENY" header and causing browsers to refuse to display our content
+    //in a frame. This prevents the second DENY header from being added to requests.
     @Bean
     public FilterRegistrationBean myFilterRegistration() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
