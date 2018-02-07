@@ -4,7 +4,7 @@ This is a trivial web application to demonstrate the usage of the [lti-launch](h
 
 ### Tecnologies Used
 - Java 8
-- Apache Maven
+- Apache Maven (Compatible with 3.5.2, requires 3.1+)
 - Spring Boot (1.5.2)
 - Apache Tomcat
 - [LTI-Launch](https://github.com/kstateome/lti-launch) Library
