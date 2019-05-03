@@ -57,6 +57,17 @@
             <groupId>edu.ksu.ome.lti</groupId>
             <artifactId>lti-launch</artifactId>
             <version>1.4.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.security.oauth</groupId>
+                    <artifactId>spring-security-oauth</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth</artifactId>
+            <version>2.0.17.RELEASE</version>
         </dependency>
 
         <dependency>
